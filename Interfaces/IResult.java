@@ -1,4 +1,8 @@
-public interface Result {
+package Interfaces;
+
+import java.util.ArrayList;
+
+interface Result {
     public String getStopId();
     public String getDisplayStopId();
     public String getShortName();

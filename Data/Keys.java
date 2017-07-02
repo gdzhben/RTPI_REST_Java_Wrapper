@@ -1,3 +1,5 @@
+package Data;
+
 public class Keys {
     private static final String ERROR_CODE = "error_code";
     private static final String ERROR_MESSAGE = "error_message";

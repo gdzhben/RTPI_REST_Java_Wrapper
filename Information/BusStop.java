@@ -1,5 +1,9 @@
-import java.utils.ArrayList;
+package Information;
+
+import Interfaces.IBusStop;
+
 import javax.json.JsonObject;
+import java.util.ArrayList;
 
 public class BusStop implements IBusStop {
     private String errorCode;
@@ -13,7 +17,7 @@ public class BusStop implements IBusStop {
     }
 
     public String getErrorCode() {
-        return this.ErrorCode;
+        return this.errorCode;
     }
 
     public String getErrorMessage() {
@@ -21,7 +25,7 @@ public class BusStop implements IBusStop {
     }
 
     public String getNumberOfResults() {
-        return this.numberofresults;
+        return this.numberOfResults;
     }
 
     public String getTimeStamp() {
