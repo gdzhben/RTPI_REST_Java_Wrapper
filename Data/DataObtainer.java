@@ -4,7 +4,9 @@ import Interfaces.IDataObtainer;
 
 import java.io.*;
 import java.net.*;
+import javax.json.Json;
 import javax.json.JsonObject;
+import javax.json.JsonReader;
 
 public class DataObtainer implements IDataObtainer {
     public static String getDataRequest(String urlString) throws IOException {
@@ -26,6 +28,10 @@ public class DataObtainer implements IDataObtainer {
     }
 
     public static JsonObject getParsedDataObject(String jsonString) {
-        return null;
+        JsonReader jsonReader = Json.createReader(new StringReader(jsonString));
+        JsonObject object = jsonReader.readObject();
+        jsonReader.close();
+
+        return object;
     }
 }

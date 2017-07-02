@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IrishRailJavaAPI.iml" filepath="$PROJECT_DIR$/IrishRailJavaAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IrishRailJavaAPI.iml" filepath="$PROJECT_DIR$/.idea/modules/IrishRailJavaAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IrishRailJavaAPI_main.iml" filepath="$PROJECT_DIR$/.idea/modules/IrishRailJavaAPI_main.iml" group="IrishRailJavaAPI" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IrishRailJavaAPI_test.iml" filepath="$PROJECT_DIR$/.idea/modules/IrishRailJavaAPI_test.iml" group="IrishRailJavaAPI" />
     </modules>
   </component>
 </project>
