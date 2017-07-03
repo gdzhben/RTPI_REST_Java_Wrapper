@@ -1,24 +1,31 @@
 package Information;
 
+import Data.Keys;
 import Interfaces.IOperator;
 
 import javax.json.JsonObject;
+import javax.json.JsonValue;
 import java.util.ArrayList;
 
-/**
- * Created by francis on 03/07/17.
- */
 public class Operator implements IOperator {
-    public Operator(JsonObject jsonObject) {
+    private String name;
+    private ArrayList<String> routes = new ArrayList<String>();
+
+    public Operator(JsonObject operatorData) {
+        this.name = operatorData.getJsonString(Keys.NAME).toString();
+
+        for (JsonValue route: operatorData.getJsonArray(Keys.OPERATORS)) {
+            routes.add(route.toString());
+        }
     }
 
     @Override
     public String getName() {
-        return null;
+        return this.name;
     }
 
     @Override
     public ArrayList<String> getRoutes() {
-        return null;
+        return this.routes;
     }
 }
