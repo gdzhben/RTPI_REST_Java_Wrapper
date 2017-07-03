@@ -4,15 +4,18 @@ import Data.DataObtainer;
 import Data.Keys;
 import Interfaces.IBusStop;
 
-import javax.json.JsonArray;
-import javax.json.JsonObject;
+import javax.json.*;
 import java.io.IOException;
+import java.io.StringReader;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class BusStop implements IBusStop {
-    private ArrayList<JsonObject> results;
-    private JsonObject busStopData;
+    private String errorCode;
+    private String errorMessage;
+    private String numberOfResults;
+    private String timeStamp;
+    private ArrayList<Result> results = new ArrayList<Result>();
 
     public BusStop(String stopNumber) throws URISyntaxException, IOException {
         StringBuilder url = new StringBuilder(UrlConstants.RTPI_SERVER);
@@ -22,26 +25,37 @@ public class BusStop implements IBusStop {
         url.append("=");
         url.append(stopNumber);
 
-        busStopData = DataObtainer.getParsedDataObject(DataObtainer.getDataRequest(url.toString()));
+        JsonObject busStopData = DataObtainer.getParsedDataObject(DataObtainer.getDataRequest(url.toString()));
+
+        this.errorCode = busStopData.getJsonString(Keys.ERROR_CODE).toString();
+        this.errorMessage = busStopData.getJsonString(Keys.ERROR_MESSAGE).toString();
+        this.numberOfResults = busStopData.getJsonString(Keys.NUMBER_OF_RESULTS).toString();
+        this.timeStamp = busStopData.getJsonString(Keys.TIMESTAMP).toString();
+
+        for (JsonValue resultData: busStopData.getJsonArray(Keys.RESULTS)) {
+            JsonReader jsonReader = Json.createReader(new StringReader(resultData.toString()));
+            results.add(new Result(jsonReader.readObject()));
+            jsonReader.close();
+        }
     }
 
     public String getErrorCode() {
-        return busStopData.getJsonString(Keys.ERROR_CODE).toString();
+        return this.errorCode;
     }
 
     public String getErrorMessage() {
-        return busStopData.getJsonString(Keys.ERROR_MESSAGE).toString();
+        return this.errorMessage;
     }
 
     public String getNumberOfResults() {
-        return busStopData.getJsonString(Keys.NUMBER_OF_RESULTS).toString();
+        return this.numberOfResults;
     }
 
     public String getTimeStamp() {
-        return busStopData.getJsonString(Keys.TIMESTAMP).toString();
+        return this.timeStamp;
     }
 
-    public JsonArray getResults() {
-        return busStopData.getJsonArray(Keys.RESULTS);
+    public ArrayList<Result> getResults() {
+        return this.results;
     }
 }

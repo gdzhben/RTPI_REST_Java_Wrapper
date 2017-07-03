@@ -2,7 +2,7 @@ package Interfaces;
 
 import java.util.ArrayList;
 
-interface Operator {
+public interface IOperator {
     String getName();
     ArrayList<String> getRoutes();
 }

@@ -1,11 +1,13 @@
 package Interfaces;
 
-import javax.json.JsonArray;
+import Information.Result;
+
+import java.util.ArrayList;
 
 public interface IBusStop {
     String getErrorCode();
     String getErrorMessage();
     String getNumberOfResults();
     String getTimeStamp();
-    JsonArray getResults();
+    ArrayList<Result> getResults();
 }

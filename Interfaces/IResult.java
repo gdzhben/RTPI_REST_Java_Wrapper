@@ -1,16 +1,18 @@
 package Interfaces;
 
+import Information.Operator;
+
 import java.util.ArrayList;
 
-interface Result {
-    public String getStopId();
-    public String getDisplayStopId();
-    public String getShortName();
-    public String getShortNameLocalized();
-    public String getFullName();
-    public String getFullNameLocalized();
-    public String getLatitude();
-    public String getLongitude();
-    public String getLastUpdated();
-    public ArrayList<Operator> getOperators();
+public interface IResult {
+    String getStopId();
+    String getDisplayStopId();
+    String getShortName();
+    String getShortNameLocalized();
+    String getFullName();
+    String getFullNameLocalized();
+    String getLatitude();
+    String getLongitude();
+    String getLastUpdated();
+    ArrayList<Operator> getOperators();
 }
