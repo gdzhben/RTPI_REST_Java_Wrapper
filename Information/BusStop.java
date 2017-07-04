@@ -29,7 +29,7 @@ public class BusStop implements IBusStop {
 
         this.errorCode = busStopData.getJsonString(Keys.ERROR_CODE).toString();
         this.errorMessage = busStopData.getJsonString(Keys.ERROR_MESSAGE).toString();
-        this.numberOfResults = busStopData.getJsonString(Keys.NUMBER_OF_RESULTS).toString();
+        this.numberOfResults = busStopData.getJsonNumber(Keys.NUMBER_OF_RESULTS).toString();
         this.timeStamp = busStopData.getJsonString(Keys.TIMESTAMP).toString();
 
         for (JsonValue resultData: busStopData.getJsonArray(Keys.RESULTS)) {

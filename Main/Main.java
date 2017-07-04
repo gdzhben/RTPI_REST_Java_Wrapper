@@ -9,8 +9,6 @@ import java.net.URISyntaxException;
 class Test {
     public static void main(String[] args) throws IOException, URISyntaxException {
         BusStop bs = new BusStop("184");
-        System.out.println(bs.getResults().get(0).getOperators().get(0).getName());
-
-        //System.out.println(DataObtainer.getDataRequest("https://data.dublinked.ie/cgi-bin/rtpi/busstopinformation?stopid=1433&format-json"));
+        System.out.println(bs.getResults().get(0).getOperators().get(0).getRoutes().get(0));
     }
 }

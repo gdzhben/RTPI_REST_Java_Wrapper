@@ -14,7 +14,8 @@ public class Operator implements IOperator {
     public Operator(JsonObject operatorData) {
         this.name = operatorData.getJsonString(Keys.NAME).toString();
 
-        for (JsonValue route: operatorData.getJsonArray(Keys.OPERATORS)) {
+        System.out.println(operatorData);
+        for (JsonValue route: operatorData.getJsonArray(Keys.ROUTES)) {
             routes.add(route.toString());
         }
     }
