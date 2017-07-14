@@ -1,15 +1,15 @@
 package Interfaces;
 
-import Information.BusStopResult;
 import Information.RealTimeBusResult;
+import Information.TimeTableResult;
 
 import java.util.ArrayList;
 
-public interface IRealTimeBus {
+public interface ITimeTable {
     String getErrorCode();
     String getErrorMessage();
     String getNumberOfResults();
     String getStopId();
     String getTimeStamp();
-    ArrayList<RealTimeBusResult> getResults();
+    ArrayList<TimeTableResult> getResults();
 }
