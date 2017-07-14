@@ -5,7 +5,7 @@ import Information.TimeTableResult;
 
 import java.util.ArrayList;
 
-public interface ITimeTable {
+public interface ITimeTableDate {
     String getErrorCode();
     String getErrorMessage();
     String getNumberOfResults();
