@@ -4,7 +4,7 @@ import Information.Operator;
 
 import java.util.ArrayList;
 
-public interface IResult {
+public interface IBusStopResult {
     String getStopId();
     String getDisplayStopId();
     String getShortName();

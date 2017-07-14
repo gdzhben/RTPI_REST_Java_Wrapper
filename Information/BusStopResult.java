@@ -1,7 +1,7 @@
 package Information;
 
 import Data.Keys;
-import Interfaces.IResult;
+import Interfaces.IBusStopResult;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -10,7 +10,7 @@ import javax.json.JsonValue;
 import java.io.StringReader;
 import java.util.ArrayList;
 
-public class Result implements IResult {
+public class BusStopResult implements IBusStopResult {
     private String stopId;
     private String displayStopId;
     private String shortName;
@@ -22,7 +22,7 @@ public class Result implements IResult {
     private String lastUpdated;
     private ArrayList<Operator> operators = new ArrayList<Operator>();
 
-    Result(JsonObject resultData) {
+    BusStopResult(JsonObject resultData) {
         this.stopId = resultData.getJsonString(Keys.STOP_ID).toString();
         this.displayStopId = resultData.getJsonString(Keys.DISPLAY_STOP_ID).toString();
         this.shortName = resultData.getJsonString(Keys.SHORT_NAME).toString();

@@ -15,7 +15,7 @@ public class BusStop implements IBusStop {
     private String errorMessage;
     private String numberOfResults;
     private String timeStamp;
-    private ArrayList<Result> results = new ArrayList<Result>();
+    private ArrayList<BusStopResult> results = new ArrayList<BusStopResult>();
 
     public BusStop(String stopNumber) throws URISyntaxException, IOException {
         StringBuilder url = new StringBuilder(UrlConstants.RTPI_SERVER);
@@ -34,7 +34,7 @@ public class BusStop implements IBusStop {
 
         for (JsonValue resultData: busStopData.getJsonArray(Keys.RESULTS)) {
             JsonReader jsonReader = Json.createReader(new StringReader(resultData.toString()));
-            results.add(new Result(jsonReader.readObject()));
+            results.add(new BusStopResult(jsonReader.readObject()));
             jsonReader.close();
         }
     }
@@ -55,7 +55,7 @@ public class BusStop implements IBusStop {
         return this.timeStamp;
     }
 
-    public ArrayList<Result> getResults() {
+    public ArrayList<BusStopResult> getResults() {
         return this.results;
     }
 }
