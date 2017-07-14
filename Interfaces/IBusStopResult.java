@@ -1,6 +1,6 @@
 package Interfaces;
 
-import Information.Operator;
+import Information.BusStopOperator;
 
 import java.util.ArrayList;
 
@@ -14,5 +14,5 @@ public interface IBusStopResult {
     String getLatitude();
     String getLongitude();
     String getLastUpdated();
-    ArrayList<Operator> getOperators();
+    ArrayList<BusStopOperator> getOperators();
 }

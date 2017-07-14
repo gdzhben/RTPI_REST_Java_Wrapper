@@ -20,7 +20,7 @@ public class BusStopResult implements IBusStopResult {
     private String latitude;
     private String longitude;
     private String lastUpdated;
-    private ArrayList<Operator> operators = new ArrayList<Operator>();
+    private ArrayList<BusStopOperator> operators = new ArrayList<BusStopOperator>();
 
     BusStopResult(JsonObject resultData) {
         this.stopId = resultData.getJsonString(Keys.STOP_ID).toString();
@@ -35,7 +35,7 @@ public class BusStopResult implements IBusStopResult {
 
         for (JsonValue operatorData: resultData.getJsonArray(Keys.OPERATORS)) {
             JsonReader jsonReader = Json.createReader(new StringReader(operatorData.toString()));
-            operators.add(new Operator(jsonReader.readObject()));
+            operators.add(new BusStopOperator(jsonReader.readObject()));
             jsonReader.close();
         }
     }
@@ -86,7 +86,7 @@ public class BusStopResult implements IBusStopResult {
     }
 
     @Override
-    public ArrayList<Operator> getOperators() {
+    public ArrayList<BusStopOperator> getOperators() {
         return this.operators;
     }
 }

@@ -1,9 +1,5 @@
 package Interfaces;
 
-import Information.Operator;
-
-import java.util.ArrayList;
-
 public interface IRouteStop {
     String getStopId();
     String getDisplayStopId();
