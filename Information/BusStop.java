@@ -19,13 +19,13 @@ public class BusStop implements IBusStop {
     private ArrayList<BusStopResult> results = new ArrayList<BusStopResult>();
 
     public BusStop(String stopNumber) throws URISyntaxException, IOException {
-        URIBuilder url = new URIBuilder();
-        url.setScheme("https");
-        url.setHost(UrlConstants.RTPI_SERVER);
-        url.setPath(UrlConstants.BUS_STOP_INFORMATION);
-        url.addParameter(UrlConstants.STOP_ID, stopNumber);
+        URIBuilder builder = new URIBuilder();
+        builder.setScheme(UrlConstants.HTTPS);
+        builder.setHost(UrlConstants.RTPI_HOST);
+        builder.setPath(UrlConstants.RTPI_PATH + UrlConstants.BUS_INFORMATION);
+        builder.addParameter(UrlConstants.STOP_ID, stopNumber);
 
-        JsonObject busStopData = DataObtainer.getParsedDataObject(DataObtainer.getDataRequest(url.build().toString()));
+        JsonObject busStopData = DataObtainer.getParsedDataObject(DataObtainer.getDataRequest(builder.build().toString()));
 
         this.errorCode = busStopData.getJsonString(Keys.ERROR_CODE).toString();
         this.errorMessage = busStopData.getJsonString(Keys.ERROR_MESSAGE).toString();
