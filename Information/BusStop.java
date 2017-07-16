@@ -3,6 +3,7 @@ package Information;
 import Data.DataObtainer;
 import Data.Keys;
 import Interfaces.IBusStop;
+import org.apache.http.client.utils.URIBuilder;
 
 import javax.json.*;
 import java.io.IOException;
@@ -18,14 +19,13 @@ public class BusStop implements IBusStop {
     private ArrayList<BusStopResult> results = new ArrayList<BusStopResult>();
 
     public BusStop(String stopNumber) throws URISyntaxException, IOException {
-        StringBuilder url = new StringBuilder(UrlConstants.RTPI_SERVER);
-        url.append(UrlConstants.BUS_STOP_INFORMATION);
-        url.append("?");
-        url.append(UrlConstants.STOP_ID);
-        url.append("=");
-        url.append(stopNumber);
+        URIBuilder url = new URIBuilder();
+        url.setScheme("https");
+        url.setHost(UrlConstants.RTPI_SERVER);
+        url.setPath(UrlConstants.BUS_STOP_INFORMATION);
+        url.addParameter(UrlConstants.STOP_ID, stopNumber);
 
-        JsonObject busStopData = DataObtainer.getParsedDataObject(DataObtainer.getDataRequest(url.toString()));
+        JsonObject busStopData = DataObtainer.getParsedDataObject(DataObtainer.getDataRequest(url.build().toString()));
 
         this.errorCode = busStopData.getJsonString(Keys.ERROR_CODE).toString();
         this.errorMessage = busStopData.getJsonString(Keys.ERROR_MESSAGE).toString();
