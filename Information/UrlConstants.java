@@ -9,5 +9,6 @@ public class UrlConstants {
     public static final String OPERATOR = "operator";
     public static final String FORMAT = "format";
     public static final String BUS_INFORMATION = "/busstopinformation";
+    public static final String REAL_TIME_BUS_INFORMATION = "/realtimebusinformation";
 
 }
