@@ -20,7 +20,7 @@ public class RealTimeBus implements IRealTimeBus {
     private String numberOfResults;
     private String stopId;
     private String timeStamp;
-    private ArrayList<RealTimeBusResult> results;
+    private ArrayList<RealTimeBusResult> results = new ArrayList<>();
 
     public RealTimeBus(String stopNumber) throws URISyntaxException, IOException {
         URIBuilder builder = new URIBuilder();

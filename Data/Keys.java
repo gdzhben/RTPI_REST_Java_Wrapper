@@ -22,8 +22,8 @@ public class Keys {
     public static final String DUE_TIME = "duetime";
     public static final String DEPARTURE_DATE_TIME = "departuredatetime";
     public static final String DEPARTURE_DUE_TIME = "departureduetime";
-    public static final String SCHEDULED_ARRIVAL_TIME = "scheduledarrivaltime";
-    public static final String SCHEDULED_DEPARTURE_TIME = "scheduleddeparturetime";
+    public static final String SCHEDULED_ARRIVAL_DATE_TIME = "scheduledarrivaldatetime";
+    public static final String SCHEDULED_DEPARTURE_DATE_TIME = "scheduleddeparturedatetime";
     public static final String DESTINATION = "destination";
     public static final String DESTINATION_LOCALIZED = "destinationlocalized";
     public static final String ORIGIN = "origin";

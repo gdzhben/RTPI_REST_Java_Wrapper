@@ -12,7 +12,7 @@ public class RealTimeBusResult implements IRealTimeBusResult {
     private String departureDateTime;
     private String departureDueTime;
     private String scheduledArrivalDateTime;
-    private String scheduledDepartureTime;
+    private String scheduledDepartureDateTime;
     private String destination;
     private String destinationLocalized;
     private String origin;
@@ -29,8 +29,8 @@ public class RealTimeBusResult implements IRealTimeBusResult {
         this.dueTime = resultData.getJsonString(Keys.DUE_TIME).toString();
         this.departureDateTime = resultData.getJsonString(Keys.DEPARTURE_DATE_TIME).toString();
         this.departureDueTime = resultData.getJsonString(Keys.DEPARTURE_DUE_TIME).toString();
-        this.scheduledArrivalDateTime = resultData.getJsonString(Keys.SCHEDULED_ARRIVAL_TIME).toString();
-        this.scheduledDepartureTime = resultData.getJsonString(Keys.SCHEDULED_DEPARTURE_TIME).toString();
+        this.scheduledArrivalDateTime = resultData.getJsonString(Keys.SCHEDULED_ARRIVAL_DATE_TIME).toString();
+        this.scheduledDepartureDateTime = resultData.getJsonString(Keys.SCHEDULED_DEPARTURE_DATE_TIME).toString();
         this.destination = resultData.getJsonString(Keys.DESTINATION).toString();
         this.destinationLocalized = resultData.getJsonString(Keys.DESTINATION_LOCALIZED).toString();
         this.origin = resultData.getJsonString(Keys.ORIGIN).toString();
@@ -66,12 +66,12 @@ public class RealTimeBusResult implements IRealTimeBusResult {
 
     @Override
     public String getScheduledArrivalDateTime() {
-        return this.arrivalDateTime;
+        return this.scheduledArrivalDateTime;
     }
 
     @Override
-    public String getScheduledDepartureTime() {
-        return this.scheduledDepartureTime;
+    public String getScheduledDepartureDateTime() {
+        return this.scheduledDepartureDateTime;
     }
 
     @Override

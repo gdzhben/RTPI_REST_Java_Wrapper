@@ -9,7 +9,7 @@ public interface IRealTimeBusResult {
     String getDepartureDateTime();
     String getDepartureDueTime();
     String getScheduledArrivalDateTime();
-    String getScheduledDepartureTime();
+    String getScheduledDepartureDateTime();
     String getDestination();
     String getDestinationLocalized();
     String getOrigin();
