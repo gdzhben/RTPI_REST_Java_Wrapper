@@ -1,15 +1,14 @@
 package Interfaces;
 
-import Information.RealTimeBusResult;
-import Information.TimeTableResult;
+import Information.TimeTableDayResult;
 
 import java.util.ArrayList;
 
-public interface ITimeTableDate {
+public interface ITimeTableDay {
     String getErrorCode();
     String getErrorMessage();
     String getNumberOfResults();
     String getStopId();
     String getTimeStamp();
-    ArrayList<TimeTableResult> getResults();
+    ArrayList<TimeTableDayResult> getResults();
 }

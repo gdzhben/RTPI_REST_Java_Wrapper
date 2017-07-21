@@ -3,6 +3,7 @@ package Main;
 import Data.DataObtainer;
 import Information.BusStop;
 import Information.RealTimeBus;
+import Information.TimeTableDay;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -13,5 +14,7 @@ class Test {
         System.out.println(bs.getResults().get(0).getOperators().get(0).getRoutes().get(0));
         RealTimeBus rtb = new RealTimeBus("184");
         System.out.println(rtb.getTimeStamp());
+        TimeTableDay ttd = new TimeTableDay("184");
+        System.out.println(ttd.getTimeStamp());
     }
 }

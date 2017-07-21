@@ -1,6 +1,6 @@
 package Interfaces;
 
-import Information.TimeTableFullResult;
+import Information.TimeTableWeekResult;
 
 import java.util.ArrayList;
 
@@ -11,5 +11,5 @@ public interface ITimeTableFull {
     String getStopId();
     String getRoute();
     String getTimeStamp();
-    ArrayList<TimeTableFullResult> getResults();
+    ArrayList<TimeTableWeekResult> getResults();
 }

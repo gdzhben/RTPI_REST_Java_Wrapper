@@ -1,6 +1,6 @@
 package Interfaces;
 
-public interface ITimeTableDateResult {
+public interface ITimeTableDayResult {
     String getArrivalDateTime();
     String getDestination();
     String getDestinationLocalized();
