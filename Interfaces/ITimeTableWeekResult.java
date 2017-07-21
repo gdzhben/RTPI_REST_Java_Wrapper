@@ -2,7 +2,7 @@ package Interfaces;
 
 import java.util.ArrayList;
 
-public interface ITimeTableFullResult {
+public interface ITimeTableWeekResult {
     String getStartDayOfWeek();
     String getEndDayOfWeek();
     String getDestination();

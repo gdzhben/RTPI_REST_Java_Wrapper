@@ -34,4 +34,7 @@ public class Keys {
     public static final String LOW_FLOOR_STATUS = "lowfloorstatus";
     public static final String ROUTE = "route";
     public static final String SOURCE_TIME_STAMP = "sourcetimestamp";
+    public static final String START_DAY_OF_WEEK = "startdayofweek";
+    public static final String END_DAY_OF_WEEK = "enddayofweek";
+    public static final String DEPARTURES = "departures";
 }

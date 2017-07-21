@@ -11,6 +11,7 @@ public class UrlConstants {
     public static final String TYPE = "type";
 
     public static final String DAY = "day";
+    public static final String WEEK = "week";
 
     public static final String BUS_INFORMATION = "/busstopinformation";
     public static final String REAL_TIME_BUS_INFORMATION = "/realtimebusinformation";

@@ -4,7 +4,7 @@ import Information.TimeTableWeekResult;
 
 import java.util.ArrayList;
 
-public interface ITimeTableFull {
+public interface ITimeTableWeek {
     String getErrorCode();
     String getErrorMessage();
     String getNumberOfResults();

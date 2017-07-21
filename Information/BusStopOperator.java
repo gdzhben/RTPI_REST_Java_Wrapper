@@ -14,7 +14,6 @@ public class BusStopOperator implements IBusStopOperator {
     public BusStopOperator(JsonObject operatorData) {
         this.name = operatorData.getJsonString(Keys.NAME).toString();
 
-        System.out.println(operatorData);
         for (JsonValue route: operatorData.getJsonArray(Keys.ROUTES)) {
             routes.add(route.toString());
         }
