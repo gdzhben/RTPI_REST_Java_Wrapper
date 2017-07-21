@@ -37,4 +37,7 @@ public class Keys {
     public static final String START_DAY_OF_WEEK = "startdayofweek";
     public static final String END_DAY_OF_WEEK = "enddayofweek";
     public static final String DEPARTURES = "departures";
+    public static final String ORIGIN_TRANSLATED = "origintranslated";
+    public static final String DESTINATION_TRANSLATED = "destinationtranslated";
+    public static final String STOPS = "stops";
 }
