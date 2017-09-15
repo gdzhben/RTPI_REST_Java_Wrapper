@@ -5,6 +5,9 @@ public class UrlConstants {
     public static final String RTPI_HOST = "data.dublinked.ie";
     public static final String RTPI_PATH = "/cgi-bin/rtpi";
     public static final String STOP_ID = "stopid";
+    public static final String ROUTE_ID = "routeid";
+    public static final String MAX_RESULTS = "maxresults";
+
     public static final String STOP_NAME = "stopname";
     public static final String OPERATOR = "operator";
     public static final String FORMAT = "format";

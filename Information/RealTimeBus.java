@@ -2,6 +2,7 @@ package Information;
 
 import Data.DataObtainer;
 import Data.Keys;
+import Exceptions.MaxResultsNeededException;
 import Interfaces.IRealTimeBus;
 import org.apache.http.client.utils.URIBuilder;
 
@@ -22,12 +23,24 @@ public class RealTimeBus implements IRealTimeBus {
     private String timeStamp;
     private ArrayList<RealTimeBusResult> results = new ArrayList<>();
 
-    public RealTimeBus(String stopNumber) throws URISyntaxException, IOException {
+    public RealTimeBus(String stopId, String routeId, String maxResults, String operator, String format) throws URISyntaxException, IOException, MaxResultsNeededException {
+        try {
+            Integer.parseInt(maxResults);
+        } catch (NumberFormatException e) {
+            throw new MaxResultsNeededException();
+        }
+
         URIBuilder builder = new URIBuilder();
         builder.setScheme(UrlConstants.HTTPS);
         builder.setHost(UrlConstants.RTPI_HOST);
         builder.setPath(UrlConstants.RTPI_PATH + UrlConstants.REAL_TIME_BUS_INFORMATION);
-        builder.addParameter(UrlConstants.STOP_ID, stopNumber);
+        builder.addParameter(UrlConstants.STOP_ID, stopId);
+        builder.addParameter(UrlConstants.ROUTE_ID, routeId);
+        builder.addParameter(UrlConstants.MAX_RESULTS, maxResults);
+        builder.addParameter(UrlConstants.OPERATOR, operator);
+        builder.addParameter(UrlConstants.FORMAT, format);
+
+        System.out.println(builder.build().toString());
 
         JsonObject realTimeBusData = DataObtainer.getParsedDataObject(DataObtainer.getDataRequest(builder.build().toString()));
 
