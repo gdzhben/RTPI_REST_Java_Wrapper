@@ -2,6 +2,7 @@ package Information;
 
 import Data.DataObtainer;
 import Data.Keys;
+import Exceptions.MaxResultsNeededException;
 import Interfaces.ITimeTableDay;
 import org.apache.http.client.utils.URIBuilder;
 
@@ -22,18 +23,34 @@ public class TimeTableDay implements ITimeTableDay {
     private String timeStamp;
     ArrayList<TimeTableDayResult> results = new ArrayList<>();
 
-    public TimeTableDay(String stopNumber) throws URISyntaxException, IOException {
+    public TimeTableDay(String stopId, String routeId, String dateTime, String maxResults, String operator, String format) throws URISyntaxException, IOException, MaxResultsNeededException {
+        try {
+            Integer.parseInt(maxResults);
+        } catch (NumberFormatException e) {
+            throw new MaxResultsNeededException();
+        }
+
+        // Date format is dd/mm/yyyy
+        // TODO fix encoding of slashes by URIBuilder for datetime
         URIBuilder builder = new URIBuilder();
         builder.setScheme(UrlConstants.HTTPS);
         builder.setHost(UrlConstants.RTPI_HOST);
         builder.setPath(UrlConstants.RTPI_PATH + UrlConstants.TIME_TABLE);
         builder.addParameter(UrlConstants.TYPE, UrlConstants.DAY);
-        builder.addParameter(UrlConstants.STOP_ID, stopNumber);
+        builder.addParameter(UrlConstants.STOP_ID, stopId);
+        builder.addParameter(UrlConstants.ROUTE_ID, routeId);
+        builder.addParameter(UrlConstants.DATE_TIME, dateTime);
+        builder.addParameter(UrlConstants.MAX_RESULTS, maxResults);
+        builder.addParameter(UrlConstants.OPERATOR, operator);
+        builder.addParameter(UrlConstants.FORMAT, format);
+
+        System.out.println(builder.build().toString());
 
         JsonObject timeTableData = DataObtainer.getParsedDataObject(DataObtainer.getDataRequest(builder.build().toString()));
 
         this.errorCode = timeTableData.getJsonString(Keys.ERROR_CODE).toString();
         this.errorMessage = timeTableData.getJsonString(Keys.ERROR_MESSAGE).toString();
+        this.numberOfResults = timeTableData.getJsonNumber(Keys.NUMBER_OF_RESULTS).toString();
         this.stopId = timeTableData.getJsonNumber(Keys.NUMBER_OF_RESULTS).toString();
         this.timeStamp = timeTableData.getJsonString(Keys.TIMESTAMP).toString();
 

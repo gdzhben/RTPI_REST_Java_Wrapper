@@ -16,7 +16,7 @@ class Test {
         System.out.println(bs.getNumberOfResults());
         RealTimeBus rtb = new RealTimeBus("184", "", "10", "", "");
         System.out.println(rtb.getNumberOfResults());
-        TimeTableDay ttd = new TimeTableDay("184");
+        TimeTableDay ttd = new TimeTableDay("184", "", "22/12/2017", "10","", "");
         System.out.println(ttd.getTimeStamp());
 //        TimeTableWeek ttw = new TimeTableWeek("184");
 //        System.out.println(ttw.getNumberOfResults());

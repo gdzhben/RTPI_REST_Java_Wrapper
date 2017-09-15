@@ -7,6 +7,7 @@ public class UrlConstants {
     public static final String STOP_ID = "stopid";
     public static final String ROUTE_ID = "routeid";
     public static final String MAX_RESULTS = "maxresults";
+    public static final String DATE_TIME = "datetime";
 
     public static final String STOP_NAME = "stopname";
     public static final String OPERATOR = "operator";

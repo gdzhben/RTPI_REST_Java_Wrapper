@@ -40,8 +40,6 @@ public class RealTimeBus implements IRealTimeBus {
         builder.addParameter(UrlConstants.OPERATOR, operator);
         builder.addParameter(UrlConstants.FORMAT, format);
 
-        System.out.println(builder.build().toString());
-
         JsonObject realTimeBusData = DataObtainer.getParsedDataObject(DataObtainer.getDataRequest(builder.build().toString()));
 
         this.errorCode = realTimeBusData.getJsonString(Keys.ERROR_CODE).toString();
